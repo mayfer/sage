@@ -1,0 +1,1235 @@
+{
+  "Slides": [
+    {
+      "mTaxObjectsForJSON": [
+        {
+          "ObjectType": "Corporation",
+          "Data": [
+            {
+              "Name": "Action",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Integer": 2,
+              "Name": "UniqueID",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "Wilhelmina Technologies Ltd.",
+              "Unique": false,
+              "Name": "FullName",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "WTL",
+              "Unique": false,
+              "Name": "Name",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Strings": [ ],
+              "Name": "Files",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "Business" ],
+              "Static": false,
+              "Name": "Businesses",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "Asset Pointer" ],
+              "Static": false,
+              "Name": "Assets",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Assets"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "Asset Pointer" ],
+              "Static": false,
+              "Name": "Liabilities",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Liabilities"
+            },
+            {
+              "Date": "\/Date(1442646000000)\/",
+              "Name": "IncorporationDate",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "CBCA", "BCBCA", "BVI", "Liechtenstein Anstalt", "Cayman", "HK" ],
+              "Text": "BCBCA",
+              "Unique": false,
+              "Name": "Statute",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Normal", "Unlimited Liability Corporation" ],
+              "Text": "Normal",
+              "Unique": false,
+              "Name": "CorporationType",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "MedicalCorporation",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "MedicalHoldingCorporation",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "",
+              "Unique": false,
+              "Name": "MedicalSubName",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Public", "Private" ],
+              "Text": "Private",
+              "Unique": false,
+              "Name": "Private",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "TSX", "TSX-V" ],
+              "Text": "TSX",
+              "Unique": false,
+              "Name": "Exchange",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "",
+              "Unique": false,
+              "Name": "IncorporationNumber",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "",
+              "Unique": false,
+              "Name": "NameReservationNumber",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Strings": [ ],
+              "Name": "RegisteredOffice",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Strings": [ ],
+              "Name": "RecordsOffice",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "EntityPointer" ],
+              "Static": false,
+              "Name": "Directors",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "EntityPointer" ],
+              "Static": false,
+              "Name": "Signatories",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Canada", "United States", "Australia", "British Virgin Islands", "Cayman", "Hong Kong", "Liechtenstein", "Luxembourg" ],
+              "Text": "Canada",
+              "Unique": false,
+              "Name": "Residence",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Date": "\/Date(1442646000000)\/",
+              "Name": "YearEnd",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "Protector",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "President",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "ChiefExecutiveOfficer",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "ChiefFinancialOfficer",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "Secretary",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "ShareholdersAgreement",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "",
+              "Unique": false,
+              "Name": "Legend",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 1,
+              "ValidObjects": [ "ShareClass" ],
+              "Static": false,
+              "Name": "ShareClasses",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Share Classes"
+            },
+            {
+              "Text": "0",
+              "Unique": false,
+              "Name": "GRIP",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Tax"
+            },
+            {
+              "Text": "0",
+              "Unique": false,
+              "Name": "LRIP",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Tax"
+            },
+            {
+              "Text": "0",
+              "Unique": false,
+              "Name": "CDA",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Tax"
+            },
+            {
+              "Text": "0",
+              "Unique": false,
+              "Name": "RDTOH",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Tax"
+            },
+            {
+              "Bool": false,
+              "Name": "Expanded",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            },
+            {
+              "Bool": true,
+              "Name": "Visible",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Integer": 4,
+              "Name": "Row",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Integer": 5,
+              "Name": "Column",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Float": 0.5,
+              "Name": "HeightPercent",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            },
+            {
+              "Float": 0.8,
+              "Name": "WidthPercent",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            }
+          ]
+        },
+        {
+          "ObjectType": "ShareClass",
+          "Data": [
+            {
+              "Name": "Action",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Integer": 3,
+              "Name": "UniqueID",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "Corporation",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Hidden"
+            },
+            {
+              "Count": 1,
+              "ValidObjects": [ "Share" ],
+              "Static": false,
+              "Name": "Shares",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Text": "Class A Common",
+              "Unique": false,
+              "Name": "FullName",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "WTL A C/S",
+              "Unique": false,
+              "Name": "Name",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Common", "Preferred" ],
+              "Text": "Common",
+              "Unique": false,
+              "Name": "Type",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 0,
+              "Name": "PUC",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 0,
+              "Name": "ParValue",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Integer": 0,
+              "Name": "MaxNumber",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "Redeemable",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 0,
+              "Name": "RedemptionValue",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "Retractable",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "PriceAdjustmentClause",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "None", "Discretionary", "Percentage Of Redemption Price", "Prescribed Rate", "4/5 of Prescribed Rate" ],
+              "Text": "",
+              "Unique": false,
+              "Name": "Dividends",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "Cumulative",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "",
+              "Unique": false,
+              "Name": "DividendRate",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "None", "PaidUpAmount", "Par Value", "RedemptionAmount", "NetAssets" ],
+              "Text": "",
+              "Unique": false,
+              "Name": "Participating",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Integer": 1,
+              "Name": "Rank",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": true,
+              "Name": "Voting",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Integer": 1,
+              "Name": "VotesPerShare",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": true,
+              "Name": "Expanded",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            }
+          ]
+        },
+        {
+          "ObjectType": "Individual",
+          "Data": [
+            {
+              "Name": "Action",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Integer": 4,
+              "Name": "UniqueID",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Strings": [ ],
+              "Name": "Files",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "Business" ],
+              "Static": false,
+              "Name": "Businesses",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 1,
+              "ValidObjects": [ "Asset Pointer" ],
+              "Static": false,
+              "Name": "Assets",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Assets"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "Asset Pointer" ],
+              "Static": false,
+              "Name": "Liabilities",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Liabilities"
+            },
+            {
+              "Text": "Dan Palmer",
+              "Unique": false,
+              "Name": "FullName",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "Dan",
+              "Unique": false,
+              "Name": "Name",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Male", "Female" ],
+              "Text": "Female",
+              "Unique": false,
+              "Name": "Gender",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Strings": [ ],
+              "Name": "Address",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Date": "\/Date(1442646000000)\/",
+              "Name": "Birthday",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "Relationship" ],
+              "Static": false,
+              "Name": "Relationships",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Canada", "United States", "Australia" ],
+              "Text": "Canada",
+              "Unique": false,
+              "Name": "Citizenship",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "EnumStrings": [ "Canada", "United States", "Australia" ],
+              "Text": "Canada",
+              "Unique": false,
+              "Name": "Residence",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 0,
+              "ValidObjects": [ "EntityPointer" ],
+              "Static": false,
+              "Name": "Signatories",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "Expanded",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            },
+            {
+              "Bool": true,
+              "Name": "Visible",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Integer": 2,
+              "Name": "Row",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Integer": 5,
+              "Name": "Column",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Float": 0.5,
+              "Name": "HeightPercent",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            },
+            {
+              "Float": 0.9,
+              "Name": "WidthPercent",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            }
+          ]
+        },
+        {
+          "ObjectType": "Share",
+          "Data": [
+            {
+              "Name": "Action",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Integer": 5,
+              "Name": "UniqueID",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "Share",
+              "Unique": false,
+              "Name": "Name",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 100,
+              "Name": "Number",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 0,
+              "Name": "FMV",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "ShareClass",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Text": "A-1",
+              "Unique": false,
+              "Name": "CertificateNumber",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Count": 1,
+              "ValidObjects": [ "Asset Pointer" ],
+              "Static": false,
+              "Name": "Shareholders",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Shareholders"
+            },
+            {
+              "Bool": false,
+              "Name": "Expanded",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            },
+            {
+              "Integer": 3,
+              "Name": "Row",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Integer": 3,
+              "Name": "Column",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            },
+            {
+              "Bool": true,
+              "Name": "Visible",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "Graphics"
+            }
+          ]
+        },
+        {
+          "ObjectType": "Asset Pointer",
+          "Data": [
+            {
+              "Name": "Action",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Integer": 6,
+              "Name": "UniqueID",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": false,
+              "Name": "IsLiability",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "General"
+            },
+            {
+              "Name": "AssetHolder",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Name": "Asset",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 100,
+              "Name": "LegalPercentInterest",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 100,
+              "Name": "BeneficialPercentInterest",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Float": 0,
+              "Name": "ACB",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": false,
+              "Tab": "General"
+            },
+            {
+              "Bool": true,
+              "Name": "Expanded",
+              "Assumed": false,
+              "Unknown": false,
+              "Hidden": true,
+              "Tab": "Graphics"
+            }
+          ]
+        }
+      ],
+      "ManuallyChangedBaseTypes": [ ],
+      "ObjectType": "State",
+      "Data": [
+        {
+          "Name": "Action",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": true,
+          "Tab": "General"
+        },
+        {
+          "Integer": 1,
+          "Name": "UniqueID",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "General"
+        },
+        {
+          "Date": "\/Date(1442646000000)\/",
+          "Name": "Time",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Action"
+        },
+        {
+          "Text": "",
+          "Unique": false,
+          "Name": "DateString",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Action"
+        },
+        {
+          "Text": "",
+          "Unique": false,
+          "Name": "TimeString",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Action"
+        },
+        {
+          "Bool": true,
+          "Name": "Generate",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Action"
+        },
+        {
+          "Count": 0,
+          "ValidObjects": [ "DocSection" ],
+          "Static": false,
+          "Name": "Sections",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": true,
+          "Tab": "General"
+        },
+        {
+          "Strings": [ ],
+          "Name": "Files",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "General"
+        },
+        {
+          "Text": "Initial State",
+          "Unique": false,
+          "Name": "ActionName",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Action"
+        },
+        {
+          "Bool": false,
+          "Name": "PlanningMemo",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Generation"
+        },
+        {
+          "Bool": false,
+          "Name": "RetainerLetter",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Generation"
+        },
+        {
+          "Count": 0,
+          "ValidObjects": [ "IndividualPointer" ],
+          "Static": false,
+          "Name": "ILALetters",
+          "Assumed": false,
+          "Unknown": false,
+          "Hidden": false,
+          "Tab": "Generation"
+        }
+      ]
+    }
+  ],
+  "ObjectType": "Transaction",
+  "Data": [
+    {
+      "Name": "Action",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": true,
+      "Tab": "General"
+    },
+    {
+      "Integer": 0,
+      "Name": "UniqueID",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "General"
+    },
+    {
+      "Text": "Webtest",
+      "Unique": false,
+      "Name": "Name",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "General"
+    },
+    {
+      "Text": "030005",
+      "Unique": false,
+      "Name": "ClientNumber",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "General"
+    },
+    {
+      "Text": "000007",
+      "Unique": false,
+      "Name": "MatterNumber",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "General"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "ResponsibleLawyer",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Lawyer"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "LawyerPhone",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Lawyer"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "LawyerFax",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Lawyer"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "LawyerEmail",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Lawyer"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "Paralegal",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Lawyer"
+    },
+    {
+      "Count": 0,
+      "ValidObjects": [ "EntityPointer" ],
+      "Static": false,
+      "Name": "Clients",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Client"
+    },
+    {
+      "Integer": 0,
+      "Name": "StartingIndex",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Integer": 0,
+      "Name": "NumDigits",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "ConfigFileName",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "Log.txt",
+      "Unique": false,
+      "Name": "LogName",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "",
+      "Unique": false,
+      "Name": "DocNumToGenerate",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "E:\\\\MEKR\\\\Projects\\\\",
+      "Unique": false,
+      "Name": "ProjectsPath",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "E:\\\\MEKR\\\\Templates\\\\Paragraphs\\\\",
+      "Unique": false,
+      "Name": "ParagraphsPath",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "E:\\\\MEKR\\\\Templates\\\\",
+      "Unique": false,
+      "Name": "TemplatesPath",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "E:\\\\MEKR\\\\Templates\\\\Tables\\\\",
+      "Unique": false,
+      "Name": "TablesPath",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "E:\\\\MEKR\\\\Templates\\\\Cells\\\\",
+      "Unique": false,
+      "Name": "CellsPath",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    },
+    {
+      "Text": "E:\\\\MEKR\\\\Templates\\\\Steps\\\\",
+      "Unique": false,
+      "Name": "StepsPath",
+      "Assumed": false,
+      "Unknown": false,
+      "Hidden": false,
+      "Tab": "Generation"
+    }
+  ]
+}
