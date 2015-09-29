@@ -1,0 +1,714 @@
+// **********************************
+// Base Classes
+// **********************************
+
+abstract | TaxObject
+{
+	General | hidden | Pointer{"TaxAction"} | Action
+	General | Integer | UniqueID
+}
+
+Transaction | TaxObject
+{
+	General | String | Name = Transaction
+	General | String | ClientNumber
+	General | String | MatterNumber
+	Lawyer | String | ResponsibleLawyer
+	Lawyer | String | LawyerPhone
+	Lawyer | String | LawyerFax
+	Lawyer | String | LawyerEmail
+	Lawyer | String | Paralegal
+	Client | Array{"EntityPointer"} | Clients
+	Generation | Integer | StartingIndex
+	Generation | Integer | NumDigits
+	Generation | String | ConfigFileName
+	Generation | String | LogName = Log.txt
+	Generation | String | DocNumToGenerate
+	Generation | String | ProjectsPath = E:\\MEKR\\Projects\\
+	Generation | String | ParagraphsPath = E:\\MEKR\\Templates\\Paragraphs\\
+	Generation | String | TemplatesPath = E:\\MEKR\\Templates\\
+	Generation | String | TablesPath = E:\\MEKR\\Templates\\Tables\\
+	Generation | String | CellsPath = E:\\MEKR\\Templates\\Cells\\
+	Generation | String | StepsPath = E:\\MEKR\\Templates\\Steps\\        
+}
+
+Profile | TaxObject
+{
+	General | String | UserName
+	General | String | Password
+	Generation | Enum{"Statutory reference", "Symbol"} | LegislativeReference = Symbol
+	Generation | Bool | SignaturePageSeparate = True
+	Generation | Enum{"$", "CA$", "CAD"} | CashType = $
+	Generation | Bool | DisplayZeros = True
+}
+
+// **********************************
+// Entities
+// **********************************
+
+abstract | Entity | TaxObject
+{
+	General | String | FullName
+	General | String | Name
+	//General | StringArray | Files
+
+	General | Array{"Business"} | Businesses
+	Assets | Array{"Asset Pointer"} | Assets
+	Liabilities | Array{"Asset Pointer"} | Liabilities
+}
+
+Individual | Entity
+{
+	General | String | FullName = Individual
+	General | String | Name = Individual
+
+	General | Enum{"Male", "Female"} | Gender = Female
+	General | StringArray | Address
+	General | Date | Birthday
+	General | Array{"Relationship"} | Relationships
+	General | Country{"Canada", "United States", "Australia"} | Citizenship = Canada
+	General | Country{"Canada", "United States", "Australia"} | Residence = Canada
+	General | Array{"EntityPointer"} | Signatories
+}
+
+CorporationArgs| TaxObject
+{
+	General | String | FullName = Corporation
+	General | String | Name = Corporation
+	
+	General | Enum{"CBCA", "BCBCA", "BVI", "Liechtenstein Anstalt", "Cayman", "HK"} | Statute = BCBCA
+	General | Enum{"Normal", "Unlimited Liability Corporation"} | CorporationType = Normal
+	General | Bool | MedicalCorporation = False
+	General | Bool | MedicalHoldingCorporation = False
+	General | String | MedicalSubName
+	General | Enum{"Public", "Private"} | Private = Private
+	General | Enum{"TSX", "TSX-V"} | Exchange = TSX
+	General | String | IncorporationNumber
+	General | String | NameReservationNumber
+	General | StringArray | RegisteredOffice
+	General | StringArray | RecordsOffice
+	General | Array{"EntityPointer"} | Directors
+	General | Array{"EntityPointer"} | Signatories
+	General | Country{"Canada", "United States", "Australia", "British Virgin Islands", "Cayman", "Hong Kong", "Liechtenstein", "Luxembourg"} | Residence = Canada
+	General | Date | YearEnd
+	General | Pointer{"Individual"} | Protector
+	Officers | Pointer{"Individual"} | President
+	Officers | Pointer{"Individual"} | ChiefExecutiveOfficer
+	Officers | Pointer{"Individual"} | ChiefFinancialOfficer
+	Officers | Pointer{"Individual"} | Secretary
+	Share Classes | Bool | ShareholdersAgreement = False
+	Share Classes | String | Legend
+}
+
+Corporation | Entity
+{
+	General | Date | IncorporationDate
+	General | CorporationArgs | CorporationArgs
+	
+	Share Classes | Array{"ShareClass"} | ShareClasses
+		
+	Tax | FloatFormula | GRIP = 0
+	Tax | FloatFormula | LRIP = 0
+	Tax | FloatFormula | CDA = 0
+	Tax | FloatFormula | RDTOH = 0
+}
+
+TrustArgs | TaxObject
+{
+	General | String | FullName = Trust
+	General | String | Name = Trust
+	General | Date | SettlementDate
+	General | String | SettlementDateString
+	General | Pointer{"Individual", "Corporation", "Partnership", "Trust"} | Protector
+	General | Array{"EntityPointer"} | Signatories
+
+	Trustees | String | TrusteeName
+}
+
+Trust | Entity
+{
+	General | TrustArgs | TrustArgs
+
+	Contributors | Array{"Contributor"} | Contributors
+	
+	Trustees | Enum{"Majority", "Unanimous", "Other"} | Decision Type = Majority
+	Trustees | Array{"EntityPointer"} | Trustees
+}
+
+Partnership | Entity
+{
+	General | String | FullName = Partnership
+	General | String | Name = Partnership
+	General | Integer | PartnershipNumber
+}
+
+// **********************************
+// Assets
+// **********************************
+
+abstract | Asset | TaxObject
+{
+	General | String | Name
+	General | Float | FMV
+}
+
+Asset Pointer | TaxObject
+{
+	General | hidden | Bool | IsLiability
+	General | Pointer{"Individual", "Corporation", "Partnership", "Trust"} | AssetHolder
+	General | Enum{"Capital Property", "Inventory"} | Type
+	General | Pointer{"Share", "Debt", "Cash", "Real Property", "Capital Property", "Eligible Capital Property", "Trust Interest"} | Asset
+	General | Float | LegalPercentInterest = 100
+	General | Float | BeneficialPercentInterest = 100
+	General | Float | ACB
+}
+
+Share | Asset
+{
+	General | String | Name = Share
+	General | Float | Number = 100
+	General | Float | FMV = 0
+	General | Pointer{"ShareClass"} | ShareClass
+	General | String | CertificateNumber
+
+	Shareholders | Array{"Asset Pointer"} | Shareholders
+}
+
+Trust Interest | Asset
+{
+	General | Pointer{"Trust"} | Trust
+	General | Bool | Discretionary = True
+	General | Enum{"Income", "Capital", "Income and Capital"} | InterestType = Income and Capital
+
+	Beneficiaries | Array{"Asset Pointer"} | Beneficiaries
+}
+
+DebtArgs | TaxObject
+{
+	General | String | Name = Debt
+	General | Float | Principal = 100
+	General | Enum{"CA$", "US$"} | Currency = CA$
+	General | Float | InterestRate
+	General | Bool | Note
+	General | String | NoteName
+	General | Date | LoanDate
+}
+
+Debt | Asset
+{
+	General | DebtArgs | DebtArgs
+
+	Creditors | Array{"Asset Pointer"} | Creditors
+	Debtors | Array{"Asset Pointer"} | Debtors
+}
+
+Cash | Asset
+{
+	General | Float | Cash = 100
+	General | Enum{"CA$", "US$"} | Currency = CA$
+
+	Holders | Array{"Asset Pointer"} | Holders
+}
+
+CapitalProperty | Asset
+{
+	General | String | FullName = Capital Property
+	General | String | Name = Capital Property
+	General | Bool | RealProperty = False
+	General | String | PID
+	General | String | LegalDescription
+	General | Bool | CareHome = False
+		
+	Holders | Array{"Asset Pointer"} | Holders
+}
+
+Depreciable Property | Asset
+{
+	General | String | FullName = Depreciable Property
+	General | String | Name = Depreciable Property
+	General | Integer | Class
+
+	Holders | Array{"Asset Pointer"} | Holders
+}
+
+Inventory | Asset
+{
+	General | String | FullName = Inventory
+	General | String | Name = Inventory
+
+	Holders | Array{"Asset Pointer"} | Holders
+}
+
+Relationship | TaxObject
+{
+	General | Pointer{"Individual"} | FirstIndividual
+	General | Enum{"Spouse", "Child", "Parent", "Nephew/Niece", "Uncle/Aunt"} | FirstRelationship = Spouse
+	General | Pointer{"Individual"} | SecondIndividual
+	General | Enum{"Spouse", "Child", "Parent", "Nephew/Niece", "Uncle/Aunt"} | SecondRelationship = Spouse
+}
+
+Business | TaxObject
+{
+	General | String | Name = Business
+	General | String | Description
+	General | Bool | Active = True
+}
+
+Trustee | TaxObject
+{
+	General | Pointer{"Individual", "Corporation", "Partnership", "Trust"} | Trustee
+}
+
+EntityPointer | TaxObject
+{
+	General | Pointer{"Individual", "Corporation", "Partnership", "Trust"} | Entity
+}
+
+IndividualPointer | TaxObject
+{
+	General | Pointer{"Individual"} | Individual
+}
+
+Contributor | TaxObject
+{
+	General | Pointer{"Individual", "Corporation", "Partnership", "Trust"} | Settlor
+	General | Date | ContributionDate
+	General | Array{"Asset Pointer"} | ContributionProperty
+}
+
+ShareClassArgs | TaxObject
+{
+	General | String | FullName = A
+	General | String | Name = A
+
+	General | Array{"Share"} | Shares
+	General | Enum{"Common", "Preferred"} | Type = Common
+	General | Float | PUC
+	General | Float | ParValue
+	General | Integer | MaxNumber
+	General | Bool | Redeemable
+	General | Float | RedemptionValue	
+	General | Bool | Retractable
+	General | Bool | PriceAdjustmentClause
+	General | Enum{"None", "Discretionary", "Percentage Of Redemption Price", "Prescribed Rate", "4/5 of Prescribed Rate"} | Dividends
+	General | Bool | Cumulative = False
+	General | String | DividendRate
+	General | Enum{"None", "PaidUpAmount", "Par Value", "RedemptionAmount", "NetAssets"} | Participating
+	General | Integer | Rank = 1
+	General | Bool | Voting = True
+	General | Integer | VotesPerShare = 1
+}
+
+ShareClass | TaxObject
+{
+	Hidden | hidden | Pointer{"Corporation"} | Corporation
+	General | hidden | Array{"Share"} | Shares
+	General | ShareClassArgs | ShareClassArgs
+}
+
+// **********************************
+// Slides
+// **********************************
+
+abstract | Action | TaxObject
+{
+}
+
+abstract | Slide | Action
+{
+	Action | String | ActionName
+	Action | Date | Time
+	Action | String | DateString
+	Action | String | TimeString
+	Action | Bool | Generate = True
+	General | hidden | Array{"DocSection"} | Sections
+	//General | StringArray | Files
+}
+
+State | Slide
+{
+	Action | String | ActionName = State
+	Generation | Bool | PlanningMemo
+	Generation | Bool | RetainerLetter
+	Generation | Array{"IndividualPointer"} | ILALetters
+}
+
+Create Tax Object | Action
+{
+	General | Pointer{"TaxObject"} | CreatedObject
+}
+
+Remove Tax Object | Action
+{
+	General | Pointer{"TaxObject"} | RemovedObject
+}
+
+Add Share Class | Action
+{
+	General | ShareClassArgs | ShareClassArgs
+}
+
+Remove Share Class | Action
+{
+	General | Pointer{"ShareClass"} | ShareClass
+}
+
+Amend Share Class | Action
+{
+	General | Pointer{"ShareClass"} | ShareClass
+	General | ShareClassArgs | ShareClassArgs
+}
+
+Amend Share Rights | Slide
+{
+	Action | String | ActionName = Amend Share Classes
+	General | Pointer{"Corporation"} | Corporation
+	General | Array{"Remove Share Class", "Amend Share Class", "Add Share Class"} | Amendments
+}
+
+Incorporation | Slide
+{
+	Action | String | ActionName = Incorporation
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Incorporator
+	
+	Corporation | String | NameReservationNumber
+	General | Pointer{"Corporation"} | ConsentToUseName
+	Corporation | CorporationArgs | CorporationArgs
+	Corporation | Array{"Add Individual Pointer"} | Signatories
+	Corporation | Array{"Add Individual Pointer"} | Directors
+
+	Share Classes | Array{"Add Share Class"} | ShareClasses
+
+	Subscription | Array{"IncorporationSubscription"} | Subscriptions
+}
+
+IncorporationSubscription | Action
+{
+	General | hidden | Pointer{"Corporation"} | Corporation
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Subscriber
+	General | hidden | Bool | SubscriptionAgreement = False
+
+	General | Array{"SubscriptionArgs"} | Subscriptions
+}
+
+Add Beneficiary | Action
+{
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Beneficiary
+	General | Bool | Discretionary = True
+	General | Enum{"Income", "Capital", "Income and Capital"} | InterestType = Income and Capital
+}
+
+Add Settlor | Action
+{
+	General | hidden | Pointer{"Trust"} | Trust
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Entity
+	General | Array{"Transfer Asset"} | SettlementProperty
+}
+
+Add Trustee | Action
+{
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Entity
+}
+
+Add Individual Pointer | Action
+{
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Entity
+}
+
+Settle Trust | Slide
+{
+	Action | String | ActionName = Settle Trust
+	
+	General | TrustArgs | TrustArgs
+
+	Settlement | String | SettlorName
+	Settlement | Array{"Add Settlor"} | Settlor
+	Trustees | Array{"Add Trustee"} | Trustees
+	Trustees | Array{"Add Individual Pointer"} | Signatories
+	Beneficiaries | Array{"Add Beneficiary"} | Beneficiaries
+	Generation | Bool | BLGInvoice = True
+	Generation | Bool | BLGRetainsProperty = True
+	Generation | Bool | DeedOfGift = False
+	Generation | Bool | LetterOfWishes = False
+}
+
+Share Issuance | Action
+{
+	General | Pointer{"ShareClass"} | ShareClass
+	General | Float | Number
+	General | Float | PUCAddition
+	General | Float | FMV
+	General | String | CertificateNumber = A1
+
+	General | hidden | Bool | Active = True
+}
+
+SubscriptionArgs | Action
+{
+	General | Array{"Transfer Asset"} | SubscriptionAssets
+	General | Array{"Share Issuance"} | Shares                        
+}
+
+Subscription | Slide
+{
+	Action | String | ActionName = Subscription
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Subscriber	
+	General | Pointer{"Corporation"} | Corporation
+	General | Array{"SubscriptionArgs"} | Subscriptions
+	Generation | Bool | SubscriptionAgreement = False
+	Generation | Bool | AnstaltRequired = False
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Anstalt
+	Generation | Bool | MembersResolutionRequired = False
+}
+
+Transfer Asset | Action
+{
+	General | Pointer{"Asset Pointer"} | Asset
+	General | Float | LegalPercentInterest
+	General | Float | BeneficialPercentInterest
+	General | Float | Amount
+	General | String | TransferorShareCertNum
+	General | String | TransfereeShareCertNum
+	General | Bool | PayCheque = True
+	General | Bool | GSTOnDisposition = False
+
+	General | hidden | Pointer{"Create Tax Object"} | NewObject
+	General | hidden | Pointer{"Create Tax Object"} | TransferorShare
+	General | hidden | Pointer{"Create Tax Object"} | NewObjectPointer
+
+	General | hidden | Pointer{"Remove Tax Object"} | CancelledShare
+}
+
+TransferArgs | Action
+{
+	General | Array{"Transfer Asset", "Share Issuance", "Loan"} | TransferAssets
+	General | Array{"Transfer Asset", "Share Issuance", "Loan"} | Consideration
+}
+
+Transfer | Slide
+{
+	Action | String | ActionName = Transfer
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Transferor
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Transferee
+	General | Array{"TransferArgs"} | Transfers
+	General | Bool | Section85 = False
+	General | Bool | Section86 = False
+	General | Bool | Section51 = False
+	General | Bool | DisclosureRequired = False
+	General | Pointer{"Individual"} | DisclosingDirector
+	General | Enum{"None", "Articles of Purchaser", "Agreement"} | PAC
+	General | hidden | Bool | IsRedemption = False
+	General | hidden | Bool | IsRepurchaseForCancellation = False
+	Generation | Enum{"Deed", "Letter", "Declaration"} | GiftDocument = Deed
+	
+	// This is a hack until we get the loan stuff all working correctly
+	Generation | Bool | DirectPayment = False
+
+	// This triggers a document that is useful in certain cases where a gift is being made
+	Generation | Bool | StatutoryDeclaration = False
+
+	// For Cayman companies where Anstalt is required
+	Generation | Bool | AnstaltRequired = False
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Anstalt
+	Generation | Bool | MembersResolutionRequired = False
+}
+
+Capital Contribution | Slide
+{
+	Action | String | ActionName = Capital Contribution
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Contributor
+	General | Array{"Transfer Asset"} | Assets
+	General | Pointer{"ShareClass"} | ShareClass
+	General | Float | PUCAddition
+}
+
+Reduce PUC | Slide
+{
+	Action | String | ActionName = Reduce PUC
+	General | Pointer{"Corporation"} | Corporation
+	General | Pointer{"ShareClass"} | ShareClass
+	General | Float | ReductionAmount
+	General | Array{"Transfer Asset"} | Property
+}
+
+Dividend Recipient | Action
+{
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | DividendRecipient
+	General | Float | DividendAmount
+	General | Enum{"CA$", "US$"} | Currency = CA$
+	General | Float | NumShares
+	General | Bool | PayDividend
+	// How is the dividend payor planning to pay the dividend?
+	General | Enum{"Cheque", "BLG Trust Account", "Transfer", "Direction"} | PaymentSource
+	// If the dividend payor is directing an entity to transfer funds, what is that entity
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | DirectedEntity
+	// If the dividend payor is directing an entity to transfer funds, what is the directed entity's source of funds?
+	General | Enum{"BLG Trust Account"} | DirectedEntitySource
+	// Is the dividend recipient going to direct the payment to a different entity?
+	General | Bool | DirectPayment = False
+	// Who is the dividend recipient going to direct this payment to?
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | DirectPaymentTo
+	// Is the payee the final destination, or will they direct the payment to someone else?
+	General | Bool | RecipientWillDirect = False
+	// If the dividend is being paid, where should the payment go?
+	General | Enum{"Bank Account", "BLG Trust Account"} | RecipientDestination
+	// Withholding Tax
+	General | Float | WithholdingTax
+	General | Float | WithholdingPercent
+	General | Float | NetDividend
+	General | Array{"Transfer Asset", "Share Issuance", "Loan"} | Payment
+}
+
+Pay Dividend | Slide
+{
+	Action | String | ActionName = Pay Dividend
+	General | Pointer{"Corporation"} | Payor
+	General | Pointer{"ShareClass"} | ShareClass
+	General | Bool | CapitalDividend
+	General | Float | EligibleAmount
+	General | Float | DeclaredAmount
+	General | Enum{"CA$", "US$"} | Currency = CA$
+	General | Array{"Dividend Recipient"} | DividendRecipients
+}
+
+CreateDebt | Action
+{
+	Debt | DebtArgs | DebtArgs
+}
+
+Loan | Slide
+{
+	Action | String | ActionName = Loan
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Lender
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Borrower
+	General | Bool | PayLoan = True
+	Debt Property | Array{"Transfer Asset"} | DebtProperty
+	General | Array{"CreateDebt"} | CreateDebt 
+	Generation | Bool | DirectPayment
+	Generation | Enum{"Cheque", "BLG Trust Account", "Transfer", "Direction"} | PaymentSource
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | DirectedEntity
+	Generation | Enum{"BLG Trust Account", "Bank Account"} | DirectedEntitySource
+	// Sometimes, no direction will need to be generated because the direction is included in a previous document (e.g. notice of dividend)
+	Generation | Bool | GenerateDirection = False
+	// If the dividend is being paid, where should the payment go?
+	Generation | Enum{"Bank Account", "BLG Trust Account"} | RecipientDestination
+	Generation | Bool | BorrowerMembersResolution = False
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | BorrowerMember	
+	Generation | Bool | LenderMembersResolution = False
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | LenderMember
+	Generation | Bool | BorrowerAnstaltResolution = False
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | BorrowerAnstalt
+	Generation | Bool | LenderAnstaltResolution = False
+	Generation | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | LenderAnstalt
+}
+
+Repay Debt | Slide
+{
+	Action | String | ActionName = Debt Repayment
+	General | Pointer{"Debt"} | Debt
+	General | Float | RepaidAmount
+	General | Float | NewAmount
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Repayer
+	General | Pointer{"Corporation", "Individual", "Partnership", "Trust"} | Creditor
+	General | Array{"Transfer Asset"} | RepaymentProperty
+}
+
+Agreement | Slide
+{
+	Action | String | ActionName = Agreement
+	General | String | AgreementName
+	General | Enum{"Shareholders' Agreement", "Other"} | AgreementType
+	General | Array{"Add Individual Pointer"} | Parties
+}
+
+Medical Corporation Summary | Slide
+{
+	Action | String | ActionName = Medical Corp Summary
+	General | Pointer{"Corporation"} | MedicalCorporation
+}
+
+CreateClosingBook | Slide
+{
+	Action | String | ActionName = Create Closing Book
+}
+
+Trust Distribution | Slide
+{
+	Action | String | ActionName = Trust Distribution
+	General | Pointer{"Trust"} | Trust
+	General | Pointer{"Individual"} | Beneficiary
+	General | Float | Amount
+}
+
+// **********************************
+// Document Generation
+// **********************************
+
+DocStep | TaxObject
+{
+	General | Pointer{"Slide"} | Slide
+	General | Pointer{"TaxAction"} | Action
+	General | Pointer{"TaxObject"} | Args
+	General | String | Condition
+
+	General | String | StepDescription
+	General | String | DocDescription
+	General | String | DocName
+	General | String | Template
+	General | Bool | CleanUpDocument = True
+	General | String | Signatories
+	General | Array{"EntityPointer"} | SignatoryPointers
+	General | String | ResponsibleParty = BLG
+	General | String | Status = To Do
+	General | String | DocNumber
+
+	
+	General | String | Number
+	General | String | TransactionNumber
+	
+	// These are for helping with renumbering, other future settings
+	General | String | GeneratedDocName
+	// I know we have this as a pointer, but too lazy to hook up the pointer
+	// when reading the transaction right now.
+	General | Integer | ActionID
+
+	General | Array{"DocStep"} | ChildSteps
+	General | String | IterationBaseType
+	General | String | CurrentIterationName
+	General | Integer | IterationArgID
+
+	General | Date | Date
+	General | String | DateString
+}
+
+DocSection | TaxObject
+{
+	General | Pointer{"Slide"} | Slide
+	General | Array{"DocStep"} | Steps
+	General | String | Title
+	General | String | Number
+
+	General | Pointer{"TaxObject"} | Args
+
+	General | Date | Date
+	General | String | DateString
+	General | String | TimeString
+}
+
+Generator | TaxObject
+{
+	General | hidden | Array{"DocSection"} | Sections
+}
+
+ListOfSteps | TaxObject
+{
+	General | String | TransactionName
+	General | Array{"DocSection"} | TransactionSections
+}
+
+Definition | TaxObject
+{
+	General | String | Term
+	General | String | DefinedTerm
+	General | Pointer{"TaxObject"} | DefinedObject
+}
